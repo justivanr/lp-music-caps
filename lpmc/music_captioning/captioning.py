@@ -74,6 +74,7 @@ def captioning(args):
         item = {"text":text,"time":time}
         inference[chunk] = item
         print(item)
+    return item
 
 if __name__ == '__main__':
     main()
