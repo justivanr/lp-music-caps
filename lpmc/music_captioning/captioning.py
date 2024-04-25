@@ -49,7 +49,7 @@ def main():
     args = parser.parse_args()
     captioning(args)
  
-def captioning(args):
+def captioning(args, write_messages=True):
     save_dir = f"exp/{args.framework}/{args.caption_type}/"
     config = OmegaConf.load(os.path.join(save_dir, "hparams.yaml"))
     model = BartCaptionModel(max_length = config.max_length)
@@ -73,7 +73,8 @@ def captioning(args):
         time = f"{chunk * 10}:00-{(chunk + 1) * 10}:00"
         item = {"text":text,"time":time}
         inference[chunk] = item
-        print(item)
+        if write_messages:
+          print(item)
     return item
 
 if __name__ == '__main__':
