@@ -5,3 +5,5 @@ notebook/
 *.egg-info
 events*
 *.pth
+
+*.out
